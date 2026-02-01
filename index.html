@@ -250,7 +250,7 @@ form .error {
 
 <section id="test">
   <h2>🔹 Test Formulaire</h2>
-  <p>Remplis correctement le formulaire suivant pour valider le test :</p>
+  <p>Écris correctement ton formulaire pour passer le test :</p>
 
   <form id="testForm" novalidate>
     <p>
@@ -341,14 +341,49 @@ testForm.addEventListener('input', (e)=>{
     errorSpan.style.color="red";
   }
 });
+
 testForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   if(testForm.checkValidity()){
     document.getElementById('successMessage').style.display = "block";
+    launchConfetti();
   } else {
     alert("Corrige les erreurs pour valider le test !");
   }
 });
+
+/* Confettis 🎉 */
+function launchConfetti(){
+  const duration = 3 * 1000;
+  const end = Date.now() + duration;
+
+  (function frame(){
+    const colors = ['#bb0000','#ffffff','#00ff00','#0000ff','#ffcc00'];
+    const confetti = document.createElement('div');
+    confetti.style.position = 'fixed';
+    confetti.style.width = '10px';
+    confetti.style.height = '10px';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+    confetti.style.top = '0px';
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.opacity = '1';
+    confetti.style.zIndex = '9999';
+    document.body.appendChild(confetti);
+
+    let top = 0;
+    const id = setInterval(()=>{
+      top += 5 + Math.random()*5;
+      confetti.style.top = top + 'px';
+      confetti.style.opacity = 1 - top/window.innerHeight;
+      if(top > window.innerHeight){
+        clearInterval(id);
+        confetti.remove();
+      }
+    }, 16);
+
+    if(Date.now() < end) requestAnimationFrame(frame);
+  })();
+}
 </script>
 
 </body>
