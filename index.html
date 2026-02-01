@@ -2,387 +2,55 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Learn HTML with Marwa</title>
+<title>Learn HTML with Marwa - Test Formulaire</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Cours HTML interactif et moderne pour débutants">
-<meta name="author" content="Marwa">
-<meta name="keywords" content="HTML, CSS, JavaScript, apprendre HTML, site éducatif, tutoriel">
-<meta name="robots" content="index, follow">
-
 <style>
-:root{
-  --primary:#4fc3c7;
-  --secondary:#81c784;
-  --bg:#f4fbff;
-  --text:#333;
-}
-
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  scroll-behavior:smooth;
-}
-
-/* HEADER */
-header{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-  padding:40px;
-  text-align:center;
-  animation: slideDown 1s ease;
-}
-
-@keyframes slideDown{
-  from{transform:translateY(-50px);opacity:0;}
-  to{transform:translateY(0);opacity:1;}
-}
-
-/* MENU */
-nav{
-  background:white;
-  position:sticky;
-  top:0;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-nav ul{
-  display:flex;
-  list-style:none;
-  margin:0;
-  padding:10px;
-  justify-content:center;
-  gap:20px;
-}
-nav a{
-  text-decoration:none;
-  color:var(--primary);
-  font-weight:bold;
-}
-
-/* SECTIONS */
-section{
-  background:white;
-  margin:30px;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
-}
-
-section.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
+body{font-family:Arial,sans-serif; background:#f4fbff; padding:20px;}
 h2{color:#00796b;}
-button{
-  background:var(--primary);
-  border:none;
-  color:white;
-  padding:10px 15px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-pre{
-  background:#eef;
-  padding:15px;
-  border-radius:10px;
-  display:none;
-  overflow:auto;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#555;
-}
-
-/* Formulaire style */
-form input {
-  padding:8px;
-  border-radius:5px;
-  border:2px solid #ccc;
-  margin-top:5px;
-}
-form input:valid { border-color:green; }
-form input:invalid { border-color:red; }
-form .error {
-  color:red;
-  font-size:0.9em;
-  display:block;
-  height:1em;
-}
+textarea{width:100%; height:200px; font-family:monospace; font-size:14px;}
+button{padding:10px 15px; background:#4fc3c7; color:white; border:none; border-radius:5px; cursor:pointer;}
+#result{margin-top:20px; font-weight:bold;}
+.valid{color:green;}
+.invalid{color:red;}
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Learn HTML with Marwa</h1>
-</header>
+<h2>🔹 Structure formulaire à compléter</h2>
+<p>Écris ton code HTML pour le formulaire dans la zone ci-dessous. Tu dois inclure :</p>
+<ul>
+  <li>Un <code>&lt;form&gt;</code> avec method et action</li>
+  <li>Au moins 2 champs <code>&lt;input&gt;</code> avec <code>required</code></li>
+  <li>Un <code>&lt;button type="submit"&gt;</code></li>
+</ul>
 
-<nav>
-  <ul>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#structure">Structure</a></li>
-    <li><a href="#balises">Balises</a></li>
-    <li><a href="#html5">HTML5</a></li>
-    <li><a href="#formulaire">Formulaire</a></li>
-    <li><a href="#test">Test</a></li>
-  </ul>
-</nav>
+<textarea id="userCode" placeholder="Écris ton code ici..."></textarea>
+<br>
+<button onclick="checkForm()">Valider le formulaire</button>
 
-<section id="intro">
-  <h2>🔹 Introduction à HTML</h2>
-  <p>
-    HTML (HyperText Markup Language) est le langage standard utilisé
-    pour créer la structure des pages web. Il est maintenu par le
-    <strong>W3C</strong>.
-  </p>
-  <p>
-    HTML fonctionne avec CSS (style) et JavaScript (interaction).
-  </p>
-</section>
-
-<section id="structure">
-  <h2>🔹 Structure d’un document HTML</h2>
-  <p>
-    Un document HTML est composé de deux parties principales :
-    <strong>&lt;head&gt;</strong> et <strong>&lt;body&gt;</strong>.
-  </p>
-  <button onclick="toggleCode('code1')">Afficher le code</button>
-  <pre id="code1">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="fr"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Ma page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  Contenu visible
-&lt;/body&gt;
-&lt;/html&gt;
-  </pre>
-</section>
-
-<section id="balises">
-  <h2>🔹 Balises HTML courantes</h2>
-  <ul>
-    <li><strong>&lt;h1&gt; à &lt;h6&gt;</strong> : titres</li>
-    <li><strong>&lt;p&gt;</strong> : paragraphe</li>
-    <li><strong>&lt;a&gt;</strong> : lien</li>
-    <li><strong>&lt;img&gt;</strong> : image</li>
-    <li><strong>&lt;ul&gt; / &lt;ol&gt;</strong> : listes</li>
-  </ul>
-  <button onclick="toggleCode('code2')">Voir exemple</button>
-  <pre id="code2">
-&lt;h1&gt;Titre principal&lt;/h1&gt;
-&lt;p&gt;Un paragraphe HTML&lt;/p&gt;
-&lt;a href="https://www.w3.org"&gt;Site du W3C&lt;/a&gt;
-  </pre>
-</section>
-
-<section id="html5">
-  <h2>🔹 HTML5 et balises sémantiques</h2>
-  <p>
-    HTML5 introduit des balises sémantiques qui donnent du sens
-    au contenu et améliorent l’accessibilité et le SEO.
-  </p>
-  <button onclick="toggleCode('code3')">Afficher HTML5</button>
-  <pre id="code3">
-&lt;header&gt;En-tête&lt;/header&gt;
-&lt;nav&gt;Navigation&lt;/nav&gt;
-&lt;section&gt;Section&lt;/section&gt;
-&lt;article&gt;Article&lt;/article&gt;
-&lt;footer&gt;Pied de page&lt;/footer&gt;
-  </pre>
-</section>
-
-<section id="formulaire">
-  <h2>🔹 Formulaire interactif avec validation</h2>
-  <p>Remplis correctement le formulaire :</p>
-
-  <form id="inscription" novalidate>
-    <p>
-      <label for="nom">Nom (3 à 10 lettres) :</label>
-      <input type="text" id="nom" name="nom" pattern="[A-Za-z]{3,10}" required>
-      <span class="error" id="nomError"></span>
-    </p>
-    <p>
-      <label for="prenom">Prénom (3 à 15 lettres) :</label>
-      <input type="text" id="prenom" name="prenom" pattern="[A-Za-z]{3,15}" required>
-      <span class="error" id="prenomError"></span>
-    </p>
-    <p>
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
-      <span class="error" id="emailError"></span>
-    </p>
-    <p>
-      <label for="age">Âge (18 à 65) :</label>
-      <input type="number" id="age" name="age" min="18" max="65" required>
-      <span class="error" id="ageError"></span>
-    </p>
-    <p>
-      <label for="dob">Date de naissance :</label>
-      <input type="date" id="dob" name="dob" required>
-      <span class="error" id="dobError"></span>
-    </p>
-    <p>
-      <label for="tel">Téléphone (xxx-xxxxxxx) :</label>
-      <input type="tel" id="tel" name="tel" pattern="\d{3}-\d{7}" required>
-      <span class="error" id="telError"></span>
-    </p>
-    <p>
-      <button type="submit">Envoyer</button>
-    </p>
-  </form>
-
-  <h3>🎵 Audio et 🎥 Vidéo</h3>
-  <audio controls><source src="bsong.mp3" type="audio/mpeg">Votre navigateur ne supporte pas l’audio.</audio><br>
-  <video controls width="320"><source src="big-bunny.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.</video>
-</section>
-
-<section id="test">
-  <h2>🔹 Test Formulaire</h2>
-  <p>Écris correctement ton formulaire pour passer le test :</p>
-
-  <form id="testForm" novalidate>
-    <p>
-      <label for="testNom">Nom :</label>
-      <input type="text" id="testNom" pattern="[A-Za-z]{3,10}" required>
-      <span class="error" id="testNomError"></span>
-    </p>
-    <p>
-      <label for="testEmail">Email :</label>
-      <input type="email" id="testEmail" required>
-      <span class="error" id="testEmailError"></span>
-    </p>
-    <p>
-      <button type="submit">Valider le test</button>
-    </p>
-  </form>
-
-  <p id="successMessage" style="color:green;font-weight:bold;display:none;">
-    🎉 Félicitations ! Tu as rempli le formulaire correctement.
-  </p>
-</section>
-
-<footer>
-  © 2026 – Learn HTML with Marwa  
-  <br>Inspiré des standards W3C, MDN et W3Schools
-</footer>
+<div id="result"></div>
 
 <script>
-/* afficher / cacher code */
-function toggleCode(id){
-  const el = document.getElementById(id);
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-}
+// Fonction pour checker le code de l'utilisateur
+function checkForm(){
+  const code = document.getElementById('userCode').value;
+  const result = document.getElementById('result');
+  
+  // Vérifier que <form> existe
+  const formExists = /<form[\s\S]*?>[\s\S]*<\/form>/i.test(code);
+  // Vérifier qu'il y a au moins 2 input required
+  const inputs = code.match(/<input[\s\S]*?required[\s\S]*?>/gi);
+  const hasTwoInputs = inputs && inputs.length >= 2;
+  // Vérifier que submit button existe
+  const submitExists = /<button[\s\S]*type=['"]submit['"]>[\s\S]*<\/button>/i.test(code);
 
-/* animation au scroll */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{
-  sections.forEach(sec=>{
-    const pos = sec.getBoundingClientRect().top;
-    if(pos < window.innerHeight - 100){
-      sec.classList.add("visible");
-    }
-  });
-});
-
-/* Validation formulaire principal */
-const form = document.getElementById('inscription');
-const errors = {
-  nom: "Nom invalide (3-10 lettres).",
-  prenom: "Prénom invalide (3-15 lettres).",
-  email: "Email invalide.",
-  age: "Âge entre 18 et 65.",
-  dob: "Date obligatoire.",
-  tel: "Téléphone invalide, format xxx-xxxxxxx."
-};
-form.addEventListener('input', (e)=>{
-  const field = e.target;
-  const errorSpan = document.getElementById(field.id + "Error");
-  if(field.validity.valid){
-    errorSpan.textContent = "✔";
-    errorSpan.style.color="green";
+  if(formExists && hasTwoInputs && submitExists){
+    result.textContent = "🎉 Bravo ! Formulaire correctement structuré.";
+    result.className = "valid";
   } else {
-    errorSpan.textContent = errors[field.id];
-    errorSpan.style.color="red";
+    result.textContent = "❌ Formulaire incomplet ou incorrect. Vérifie les éléments obligatoires.";
+    result.className = "invalid";
   }
-});
-form.addEventListener('submit', (e)=>{
-  if(!form.checkValidity()){
-    e.preventDefault();
-    alert("Corrigez les erreurs avant d'envoyer !");
-  }
-});
-
-/* Validation test interactif */
-const testForm = document.getElementById('testForm');
-const errorsTest = {
-  testNom: "Nom invalide (3-10 lettres).",
-  testEmail: "Email invalide."
-};
-testForm.addEventListener('input', (e)=>{
-  const field = e.target;
-  const errorSpan = document.getElementById(field.id + "Error");
-  if(field.validity.valid){
-    errorSpan.textContent = "✔";
-    errorSpan.style.color="green";
-  } else {
-    errorSpan.textContent = errorsTest[field.id];
-    errorSpan.style.color="red";
-  }
-});
-
-testForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  if(testForm.checkValidity()){
-    document.getElementById('successMessage').style.display = "block";
-    launchConfetti();
-  } else {
-    alert("Corrige les erreurs pour valider le test !");
-  }
-});
-
-/* Confettis 🎉 */
-function launchConfetti(){
-  const duration = 3 * 1000;
-  const end = Date.now() + duration;
-
-  (function frame(){
-    const colors = ['#bb0000','#ffffff','#00ff00','#0000ff','#ffcc00'];
-    const confetti = document.createElement('div');
-    confetti.style.position = 'fixed';
-    confetti.style.width = '10px';
-    confetti.style.height = '10px';
-    confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-    confetti.style.top = '0px';
-    confetti.style.left = Math.random() * window.innerWidth + 'px';
-    confetti.style.opacity = '1';
-    confetti.style.zIndex = '9999';
-    document.body.appendChild(confetti);
-
-    let top = 0;
-    const id = setInterval(()=>{
-      top += 5 + Math.random()*5;
-      confetti.style.top = top + 'px';
-      confetti.style.opacity = 1 - top/window.innerHeight;
-      if(top > window.innerHeight){
-        clearInterval(id);
-        confetti.remove();
-      }
-    }, 16);
-
-    if(Date.now() < end) requestAnimationFrame(frame);
-  })();
 }
 </script>
 
