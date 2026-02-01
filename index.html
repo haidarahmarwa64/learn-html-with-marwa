@@ -78,7 +78,6 @@ section.visible{
 }
 
 h2{color:#00796b;}
-
 button{
   background:var(--primary);
   border:none;
@@ -103,13 +102,12 @@ footer{
   color:#555;
 }
 
-/* FORMULAIRE */
-form input, form select {
+/* Formulaire style */
+form input {
   padding:8px;
   border-radius:5px;
   border:2px solid #ccc;
   margin-top:5px;
-  width: 250px;
 }
 form input:valid { border-color:green; }
 form input:invalid { border-color:red; }
@@ -135,10 +133,10 @@ form .error {
     <li><a href="#balises">Balises</a></li>
     <li><a href="#html5">HTML5</a></li>
     <li><a href="#formulaire">Formulaire</a></li>
+    <li><a href="#test">Test</a></li>
   </ul>
 </nav>
 
-<!-- Introduction -->
 <section id="intro">
   <h2>🔹 Introduction à HTML</h2>
   <p>
@@ -151,7 +149,6 @@ form .error {
   </p>
 </section>
 
-<!-- Structure HTML -->
 <section id="structure">
   <h2>🔹 Structure d’un document HTML</h2>
   <p>
@@ -173,7 +170,6 @@ form .error {
   </pre>
 </section>
 
-<!-- Balises courantes -->
 <section id="balises">
   <h2>🔹 Balises HTML courantes</h2>
   <ul>
@@ -191,7 +187,6 @@ form .error {
   </pre>
 </section>
 
-<!-- HTML5 -->
 <section id="html5">
   <h2>🔹 HTML5 et balises sémantiques</h2>
   <p>
@@ -208,88 +203,89 @@ form .error {
   </pre>
 </section>
 
-<!-- Formulaire -->
 <section id="formulaire">
   <h2>🔹 Formulaire interactif avec validation</h2>
-  <p>Exemple d'un formulaire complet avec validation HTML5 et feedback visuel.</p>
+  <p>Remplis correctement le formulaire :</p>
 
   <form id="inscription" novalidate>
-    <!-- Nom -->
     <p>
-      <label for="nom">Nom (3 à 10 lettres) : </label>
-      <input type="text" id="nom" name="nom" minlength="3" maxlength="10" pattern="[A-Za-z]{3,10}" required>
+      <label for="nom">Nom (3 à 10 lettres) :</label>
+      <input type="text" id="nom" name="nom" pattern="[A-Za-z]{3,10}" required>
       <span class="error" id="nomError"></span>
     </p>
-
-    <!-- Prénom -->
     <p>
-      <label for="prenom">Prénom (3 à 15 lettres) : </label>
-      <input type="text" id="prenom" name="prenom" minlength="3" maxlength="15" pattern="[A-Za-z]{3,15}" required>
+      <label for="prenom">Prénom (3 à 15 lettres) :</label>
+      <input type="text" id="prenom" name="prenom" pattern="[A-Za-z]{3,15}" required>
       <span class="error" id="prenomError"></span>
     </p>
-
-    <!-- Email -->
     <p>
-      <label for="email">Email : </label>
+      <label for="email">Email :</label>
       <input type="email" id="email" name="email" required>
       <span class="error" id="emailError"></span>
     </p>
-
-    <!-- Âge -->
     <p>
-      <label for="age">Âge (18 à 65) : </label>
+      <label for="age">Âge (18 à 65) :</label>
       <input type="number" id="age" name="age" min="18" max="65" required>
       <span class="error" id="ageError"></span>
     </p>
-
-    <!-- Date de naissance -->
     <p>
-      <label for="dob">Date de naissance : </label>
+      <label for="dob">Date de naissance :</label>
       <input type="date" id="dob" name="dob" required>
       <span class="error" id="dobError"></span>
     </p>
-
-    <!-- Numéro de téléphone marocain -->
     <p>
-      <label for="tel">Téléphone (format xxx-xxxxxxx) : </label>
+      <label for="tel">Téléphone (xxx-xxxxxxx) :</label>
       <input type="tel" id="tel" name="tel" pattern="\d{3}-\d{7}" required>
       <span class="error" id="telError"></span>
     </p>
-
-    <!-- Submit -->
     <p>
       <button type="submit">Envoyer</button>
     </p>
   </form>
 
-  <!-- Audio et vidéo -->
   <h3>🎵 Audio et 🎥 Vidéo</h3>
-  <audio controls>
-    <source src="bsong.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas l’audio.
-  </audio>
-  <br>
-  <video controls width="320">
-    <source src="big-bunny.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
+  <audio controls><source src="bsong.mp3" type="audio/mpeg">Votre navigateur ne supporte pas l’audio.</audio><br>
+  <video controls width="320"><source src="big-bunny.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.</video>
 </section>
 
-<!-- Footer -->
+<section id="test">
+  <h2>🔹 Test Formulaire</h2>
+  <p>Remplis correctement le formulaire suivant pour valider le test :</p>
+
+  <form id="testForm" novalidate>
+    <p>
+      <label for="testNom">Nom :</label>
+      <input type="text" id="testNom" pattern="[A-Za-z]{3,10}" required>
+      <span class="error" id="testNomError"></span>
+    </p>
+    <p>
+      <label for="testEmail">Email :</label>
+      <input type="email" id="testEmail" required>
+      <span class="error" id="testEmailError"></span>
+    </p>
+    <p>
+      <button type="submit">Valider le test</button>
+    </p>
+  </form>
+
+  <p id="successMessage" style="color:green;font-weight:bold;display:none;">
+    🎉 Félicitations ! Tu as rempli le formulaire correctement.
+  </p>
+</section>
+
 <footer>
   © 2026 – Learn HTML with Marwa  
   <br>Inspiré des standards W3C, MDN et W3Schools
 </footer>
 
-<!-- Scripts -->
 <script>
-/* Afficher / cacher code */
+/* afficher / cacher code */
 function toggleCode(id){
   const el = document.getElementById(id);
   el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
-/* Animation au scroll */
+/* animation au scroll */
 const sections = document.querySelectorAll("section");
 window.addEventListener("scroll", ()=>{
   sections.forEach(sec=>{
@@ -300,33 +296,57 @@ window.addEventListener("scroll", ()=>{
   });
 });
 
-/* Validation formulaire live */
+/* Validation formulaire principal */
 const form = document.getElementById('inscription');
 const errors = {
-  nom: "Nom invalide, 3 à 10 lettres uniquement.",
-  prenom: "Prénom invalide, 3 à 15 lettres uniquement.",
+  nom: "Nom invalide (3-10 lettres).",
+  prenom: "Prénom invalide (3-15 lettres).",
   email: "Email invalide.",
   age: "Âge entre 18 et 65.",
   dob: "Date obligatoire.",
   tel: "Téléphone invalide, format xxx-xxxxxxx."
 };
-
 form.addEventListener('input', (e)=>{
   const field = e.target;
   const errorSpan = document.getElementById(field.id + "Error");
   if(field.validity.valid){
-    errorSpan.textContent = "✔"; // check vert
+    errorSpan.textContent = "✔";
     errorSpan.style.color="green";
   } else {
     errorSpan.textContent = errors[field.id];
     errorSpan.style.color="red";
   }
 });
-
 form.addEventListener('submit', (e)=>{
   if(!form.checkValidity()){
     e.preventDefault();
-    alert("Veuillez corriger les erreurs avant d'envoyer le formulaire !");
+    alert("Corrigez les erreurs avant d'envoyer !");
+  }
+});
+
+/* Validation test interactif */
+const testForm = document.getElementById('testForm');
+const errorsTest = {
+  testNom: "Nom invalide (3-10 lettres).",
+  testEmail: "Email invalide."
+};
+testForm.addEventListener('input', (e)=>{
+  const field = e.target;
+  const errorSpan = document.getElementById(field.id + "Error");
+  if(field.validity.valid){
+    errorSpan.textContent = "✔";
+    errorSpan.style.color="green";
+  } else {
+    errorSpan.textContent = errorsTest[field.id];
+    errorSpan.style.color="red";
+  }
+});
+testForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  if(testForm.checkValidity()){
+    document.getElementById('successMessage').style.display = "block";
+  } else {
+    alert("Corrige les erreurs pour valider le test !");
   }
 });
 </script>
