@@ -104,6 +104,7 @@ pre{
     <li><a href="#structure">Structure</a></li>
     <li><a href="#balises">Balises</a></li>
     <li><a href="#html5">HTML5</a></li>
+    <li><a href="#stucture_formulaire">Structure formulaire</a></li>
     <li><a href="#test">Test</a></li>
   </ul>
 </nav>
@@ -159,6 +160,44 @@ pre{
 &lt;section&gt;Section&lt;/section&gt;
 &lt;footer&gt;Pied de page&lt;/footer&gt;
   </pre>
+</section>
+<section id="structure_formulaire">
+  <h2>🔹 Comment créer un formulaire HTML</h2>
+  <p>Pour créer un formulaire, il faut utiliser la balise &lt;form&gt; qui contient tous les champs de saisie et le bouton d’envoi.</p>
+
+  <h3>1️⃣ Les champs de saisie (&lt;input&gt;)</h3>
+  <ul>
+    <li><strong>Type texte (text)</strong> : pour nom, prénom, adresse…</li>
+    <li><strong>Type email</strong> : pour saisir une adresse email, le navigateur vérifie automatiquement le format.</li>
+    <li><strong>Type nombre (number)</strong> : pour l’âge ou toute valeur numérique, on peut limiter avec min et max.</li>
+    <li><strong>Type date (date)</strong> : pour choisir une date (ex : date de naissance).</li>
+    <li><strong>Type téléphone (tel)</strong> : pour un numéro de téléphone, souvent avec pattern pour vérifier le format.</li>
+  </ul>
+
+  <h3>2️⃣ Attributs importants</h3>
+  <ul>
+    <li><strong>required</strong> : rend un champ obligatoire. Le formulaire ne pourra pas être envoyé si ce champ est vide.</li>
+    <li><strong>pattern</strong> : permet de limiter la saisie à un certain format grâce aux expressions régulières. Exemple : <code>\d{3}-\d{7}</code> pour un numéro marocain xxx-xxxxxxx.</li>
+    <li><strong>min / max</strong> : pour les nombres, définissent la valeur minimale et maximale.</li>
+    <li><strong>minlength / maxlength</strong> : pour les textes, définissent le nombre minimum et maximum de caractères.</li>
+  </ul>
+
+  <h3>3️⃣ Le bouton d’envoi</h3>
+  <p>Le formulaire se termine généralement avec un bouton de type <strong>submit</strong> qui envoie les données. Sans ce bouton, l’utilisateur ne peut pas valider le formulaire.</p>
+
+  <h3>4️⃣ Conseils pour ton formulaire</h3>
+  <ul>
+    <li>Commence par ouvrir la balise &lt;form&gt; et la fermer à la fin.</li>
+    <li>Chaque champ doit avoir un &lt;label&gt; pour indiquer ce que l’utilisateur doit remplir.</li>
+    <li>Choisis le <strong>type</strong> adapté au contenu que l’utilisateur doit saisir.</li>
+    <li>Utilise <strong>required</strong> pour les champs obligatoires.</li>
+    <li>Utilise <strong>pattern</strong> si tu veux imposer un format précis (ex : téléphone, mot de passe).</li>
+    <li>Ajoute un bouton <strong>submit</strong> à la fin pour envoyer le formulaire.</li>
+  </ul>
+
+  <p>💡 Astuce : tu peux aussi insérer des éléments comme &lt;textarea&gt; pour des textes longs, &lt;select&gt; pour des listes déroulantes, ou &lt;input type="file"&gt; pour des fichiers. Mais pour le test, concentre-toi sur : nom, prénom, email, âge, date, téléphone et bouton d’envoi.</p>
+
+  <p>Maintenant, utilise ces indications pour écrire ton propre formulaire dans le test interactif !</p>
 </section>
 
 <section id="test">
@@ -236,3 +275,4 @@ function checkForm(){
 
 </body>
 </html>
+
