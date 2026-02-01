@@ -2,53 +2,233 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Learn HTML with Marwa - Test Formulaire</title>
+<title>Learn HTML with Marwa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body{font-family:Arial,sans-serif; background:#f4fbff; padding:20px;}
-h2{color:#00796b;}
-textarea{width:100%; height:200px; font-family:monospace; font-size:14px;}
-button{padding:10px 15px; background:#4fc3c7; color:white; border:none; border-radius:5px; cursor:pointer;}
-#result{margin-top:20px; font-weight:bold;}
+:root{
+  --primary:#4fc3c7;
+  --secondary:#81c784;
+  --bg:#f4fbff;
+  --text:#333;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+  padding:20px;
+}
+
+header{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  padding:40px;
+  text-align:center;
+}
+
+nav{
+  background:white;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+nav ul{
+  display:flex;
+  list-style:none;
+  margin:0;
+  padding:10px;
+  justify-content:center;
+  gap:20px;
+}
+nav a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:bold;
+}
+
+section{
+  background:white;
+  margin:20px 0;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+textarea{
+  width:100%;
+  height:200px;
+  font-family:monospace;
+  font-size:14px;
+  padding:10px;
+  border-radius:5px;
+  border:2px solid #ccc;
+}
+
+button{
+  padding:10px 15px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+#result{
+  margin-top:20px;
+  font-weight:bold;
+}
+
 .valid{color:green;}
 .invalid{color:red;}
+
+pre{
+  background:#eef;
+  padding:15px;
+  border-radius:10px;
+  overflow:auto;
+}
 </style>
 </head>
 <body>
 
-<h2>🔹 Structure formulaire à compléter</h2>
-<p>Écris ton code HTML pour le formulaire dans la zone ci-dessous. Tu dois inclure :</p>
-<ul>
-  <li>Un <code>&lt;form&gt;</code> avec method et action</li>
-  <li>Au moins 2 champs <code>&lt;input&gt;</code> avec <code>required</code></li>
-  <li>Un <code>&lt;button type="submit"&gt;</code></li>
-</ul>
+<header>
+  <h1>Learn HTML with Marwa</h1>
+</header>
 
-<textarea id="userCode" placeholder="Écris ton code ici..."></textarea>
-<br>
-<button onclick="checkForm()">Valider le formulaire</button>
+<nav>
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#balises">Balises</a></li>
+    <li><a href="#html5">HTML5</a></li>
+    <li><a href="#test">Test</a></li>
+  </ul>
+</nav>
 
-<div id="result"></div>
+<section id="intro">
+  <h2>🔹 Introduction à HTML</h2>
+  <p>
+    HTML est le langage standard pour créer des pages web. Il fonctionne avec CSS et JavaScript.
+  </p>
+</section>
+
+<section id="structure">
+  <h2>🔹 Structure d’un document HTML</h2>
+  <p>
+    Un document HTML se compose de <strong>&lt;head&gt;</strong> et <strong>&lt;body&gt;</strong>.
+  </p>
+  <button onclick="toggleCode('code1')">Afficher le code</button>
+  <pre id="code1">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;Contenu&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+</section>
+
+<section id="balises">
+  <h2>🔹 Balises HTML courantes</h2>
+  <ul>
+    <li>&lt;h1&gt; à &lt;h6&gt; : titres</li>
+    <li>&lt;p&gt; : paragraphe</li>
+    <li>&lt;a&gt; : lien</li>
+    <li>&lt;img&gt; : image</li>
+    <li>&lt;ul&gt; / &lt;ol&gt; : listes</li>
+  </ul>
+  <button onclick="toggleCode('code2')">Voir exemple</button>
+  <pre id="code2">
+&lt;h1&gt;Titre&lt;/h1&gt;
+&lt;p&gt;Paragraphe&lt;/p&gt;
+&lt;a href="#"&gt;Lien&lt;/a&gt;
+  </pre>
+</section>
+
+<section id="html5">
+  <h2>🔹 HTML5 et balises sémantiques</h2>
+  <p>
+    HTML5 apporte des balises sémantiques pour structurer le contenu.
+  </p>
+  <button onclick="toggleCode('code3')">Afficher HTML5</button>
+  <pre id="code3">
+&lt;header&gt;En-tête&lt;/header&gt;
+&lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;section&gt;Section&lt;/section&gt;
+&lt;footer&gt;Pied de page&lt;/footer&gt;
+  </pre>
+</section>
+
+<section id="test">
+  <h2>🔹 Test Formulaire (à coder)</h2>
+  <p>Écris ton code HTML pour un formulaire contenant :</p>
+  <ul>
+    <li>Nom</li>
+    <li>Prénom</li>
+    <li>Date de naissance</li>
+    <li>Téléphone</li>
+    <li>Adresse</li>
+    <li>Email</li>
+    <li>Bouton Submit</li>
+  </ul>
+  <p>Utilise les attributs <code>required</code> et <code>type</code> appropriés.</p>
+
+  <textarea id="userCode" placeholder="Écris ton code ici..."></textarea>
+  <br>
+  <button onclick="checkForm()">Valider le formulaire</button>
+
+  <div id="result"></div>
+</section>
+
+<footer>
+  © 2026 – Learn HTML with Marwa
+</footer>
 
 <script>
-// Fonction pour checker le code de l'utilisateur
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+/* animation scroll */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const pos = sec.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
+      sec.classList.add("visible");
+    }
+  });
+});
+
+/* Test formulaire user */
 function checkForm(){
   const code = document.getElementById('userCode').value;
   const result = document.getElementById('result');
-  
-  // Vérifier que <form> existe
-  const formExists = /<form[\s\S]*?>[\s\S]*<\/form>/i.test(code);
-  // Vérifier qu'il y a au moins 2 input required
-  const inputs = code.match(/<input[\s\S]*?required[\s\S]*?>/gi);
-  const hasTwoInputs = inputs && inputs.length >= 2;
-  // Vérifier que submit button existe
-  const submitExists = /<button[\s\S]*type=['"]submit['"]>[\s\S]*<\/button>/i.test(code);
 
-  if(formExists && hasTwoInputs && submitExists){
-    result.textContent = "🎉 Bravo ! Formulaire correctement structuré.";
+  // Vérifier <form>
+  const hasForm = /<form[\s\S]*?>[\s\S]*?<\/form>/i.test(code);
+
+  // Vérifier les champs requis
+  const requiredFields = [
+    'nom', 'prenom', 'dob', 'tel', 'adresse', 'email'
+  ];
+  let allFields = true;
+  requiredFields.forEach(field=>{
+    const re = new RegExp(`<input[^>]*name=['"]${field}['"][^>]*required`, 'i');
+    if(!re.test(code)) allFields = false;
+  });
+
+  // Vérifier submit button
+  const hasSubmit = /<button[^>]*type=['"]submit['"]/i.test(code);
+
+  if(hasForm && allFields && hasSubmit){
+    result.textContent = "🎉 Bravo ! Formulaire complet et correct.";
     result.className = "valid";
   } else {
-    result.textContent = "❌ Formulaire incomplet ou incorrect. Vérifie les éléments obligatoires.";
+    result.textContent = "❌ Formulaire incomplet ou incorrect. Vérifie tous les champs obligatoires.";
     result.className = "invalid";
   }
 }
