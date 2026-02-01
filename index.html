@@ -102,6 +102,23 @@ footer{
   padding:20px;
   color:#555;
 }
+
+/* FORMULAIRE */
+form input, form select {
+  padding:8px;
+  border-radius:5px;
+  border:2px solid #ccc;
+  margin-top:5px;
+  width: 250px;
+}
+form input:valid { border-color:green; }
+form input:invalid { border-color:red; }
+form .error {
+  color:red;
+  font-size:0.9em;
+  display:block;
+  height:1em;
+}
 </style>
 </head>
 
@@ -109,7 +126,6 @@ footer{
 
 <header>
   <h1>Learn HTML with Marwa</h1>
-  
 </header>
 
 <nav>
@@ -118,9 +134,11 @@ footer{
     <li><a href="#structure">Structure</a></li>
     <li><a href="#balises">Balises</a></li>
     <li><a href="#html5">HTML5</a></li>
+    <li><a href="#formulaire">Formulaire</a></li>
   </ul>
 </nav>
 
+<!-- Introduction -->
 <section id="intro">
   <h2>🔹 Introduction à HTML</h2>
   <p>
@@ -133,13 +151,13 @@ footer{
   </p>
 </section>
 
+<!-- Structure HTML -->
 <section id="structure">
   <h2>🔹 Structure d’un document HTML</h2>
   <p>
     Un document HTML est composé de deux parties principales :
     <strong>&lt;head&gt;</strong> et <strong>&lt;body&gt;</strong>.
   </p>
-
   <button onclick="toggleCode('code1')">Afficher le code</button>
   <pre id="code1">
 &lt;!DOCTYPE html&gt;
@@ -155,6 +173,7 @@ footer{
   </pre>
 </section>
 
+<!-- Balises courantes -->
 <section id="balises">
   <h2>🔹 Balises HTML courantes</h2>
   <ul>
@@ -164,7 +183,6 @@ footer{
     <li><strong>&lt;img&gt;</strong> : image</li>
     <li><strong>&lt;ul&gt; / &lt;ol&gt;</strong> : listes</li>
   </ul>
-
   <button onclick="toggleCode('code2')">Voir exemple</button>
   <pre id="code2">
 &lt;h1&gt;Titre principal&lt;/h1&gt;
@@ -173,12 +191,24 @@ footer{
   </pre>
 </section>
 
+<!-- HTML5 -->
 <section id="html5">
   <h2>🔹 HTML5 et balises sémantiques</h2>
   <p>
     HTML5 introduit des balises sémantiques qui donnent du sens
     au contenu et améliorent l’accessibilité et le SEO.
   </p>
+  <button onclick="toggleCode('code3')">Afficher HTML5</button>
+  <pre id="code3">
+&lt;header&gt;En-tête&lt;/header&gt;
+&lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;section&gt;Section&lt;/section&gt;
+&lt;article&gt;Article&lt;/article&gt;
+&lt;footer&gt;Pied de page&lt;/footer&gt;
+  </pre>
+</section>
+
+<!-- Formulaire -->
 <section id="formulaire">
   <h2>🔹 Formulaire interactif avec validation</h2>
   <p>Exemple d'un formulaire complet avec validation HTML5 et feedback visuel.</p>
@@ -226,7 +256,7 @@ footer{
       <span class="error" id="telError"></span>
     </p>
 
-    <!-- Bouton submit -->
+    <!-- Submit -->
     <p>
       <button type="submit">Envoyer</button>
     </p>
@@ -245,28 +275,33 @@ footer{
   </video>
 </section>
 
-<style>
-/* Formulaire style */
-form input {
-  padding:8px;
-  border-radius:5px;
-  border:2px solid #ccc;
-  margin-top:5px;
-}
-form input:valid { border-color:green; }
-form input:invalid { border-color:red; }
-form .error {
-  color:red;
-  font-size:0.9em;
-  display:block;
-  height:1em;
-}
-</style>
+<!-- Footer -->
+<footer>
+  © 2026 – Learn HTML with Marwa  
+  <br>Inspiré des standards W3C, MDN et W3Schools
+</footer>
 
+<!-- Scripts -->
 <script>
-// Validation personnalisée en live
-const form = document.getElementById('inscription');
+/* Afficher / cacher code */
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
 
+/* Animation au scroll */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const pos = sec.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
+      sec.classList.add("visible");
+    }
+  });
+});
+
+/* Validation formulaire live */
+const form = document.getElementById('inscription');
 const errors = {
   nom: "Nom invalide, 3 à 10 lettres uniquement.",
   prenom: "Prénom invalide, 3 à 15 lettres uniquement.",
@@ -296,42 +331,5 @@ form.addEventListener('submit', (e)=>{
 });
 </script>
 
-  <button onclick="toggleCode('code3')">Afficher HTML5</button>
-  <pre id="code3">
-&lt;header&gt;En-tête&lt;/header&gt;
-&lt;nav&gt;Navigation&lt;/nav&gt;
-&lt;section&gt;Section&lt;/section&gt;
-&lt;article&gt;Article&lt;/article&gt;
-&lt;footer&gt;Pied de page&lt;/footer&gt;
-  </pre>
-</section>
-
-<footer>
-  © 2026 – Learn HTML with Marwa  
-  <br>Inspiré des standards W3C, MDN et W3Schools
-</footer>
-
-<script>
-/* afficher / cacher code */
-function toggleCode(id){
-  const el = document.getElementById(id);
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-}
-
-/* animation au scroll */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{
-  sections.forEach(sec=>{
-    const pos = sec.getBoundingClientRect().top;
-    if(pos < window.innerHeight - 100){
-      sec.classList.add("visible");
-    }
-  });
-});
-</script>
-
 </body>
 </html>
-
-
-
