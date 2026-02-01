@@ -179,6 +179,122 @@ footer{
     HTML5 introduit des balises sémantiques qui donnent du sens
     au contenu et améliorent l’accessibilité et le SEO.
   </p>
+<section id="formulaire">
+  <h2>🔹 Formulaire interactif avec validation</h2>
+  <p>Exemple d'un formulaire complet avec validation HTML5 et feedback visuel.</p>
+
+  <form id="inscription" novalidate>
+    <!-- Nom -->
+    <p>
+      <label for="nom">Nom (3 à 10 lettres) : </label>
+      <input type="text" id="nom" name="nom" minlength="3" maxlength="10" pattern="[A-Za-z]{3,10}" required>
+      <span class="error" id="nomError"></span>
+    </p>
+
+    <!-- Prénom -->
+    <p>
+      <label for="prenom">Prénom (3 à 15 lettres) : </label>
+      <input type="text" id="prenom" name="prenom" minlength="3" maxlength="15" pattern="[A-Za-z]{3,15}" required>
+      <span class="error" id="prenomError"></span>
+    </p>
+
+    <!-- Email -->
+    <p>
+      <label for="email">Email : </label>
+      <input type="email" id="email" name="email" required>
+      <span class="error" id="emailError"></span>
+    </p>
+
+    <!-- Âge -->
+    <p>
+      <label for="age">Âge (18 à 65) : </label>
+      <input type="number" id="age" name="age" min="18" max="65" required>
+      <span class="error" id="ageError"></span>
+    </p>
+
+    <!-- Date de naissance -->
+    <p>
+      <label for="dob">Date de naissance : </label>
+      <input type="date" id="dob" name="dob" required>
+      <span class="error" id="dobError"></span>
+    </p>
+
+    <!-- Numéro de téléphone marocain -->
+    <p>
+      <label for="tel">Téléphone (format xxx-xxxxxxx) : </label>
+      <input type="tel" id="tel" name="tel" pattern="\d{3}-\d{7}" required>
+      <span class="error" id="telError"></span>
+    </p>
+
+    <!-- Bouton submit -->
+    <p>
+      <button type="submit">Envoyer</button>
+    </p>
+  </form>
+
+  <!-- Audio et vidéo -->
+  <h3>🎵 Audio et 🎥 Vidéo</h3>
+  <audio controls>
+    <source src="bsong.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l’audio.
+  </audio>
+  <br>
+  <video controls width="320">
+    <source src="big-bunny.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</section>
+
+<style>
+/* Formulaire style */
+form input {
+  padding:8px;
+  border-radius:5px;
+  border:2px solid #ccc;
+  margin-top:5px;
+}
+form input:valid { border-color:green; }
+form input:invalid { border-color:red; }
+form .error {
+  color:red;
+  font-size:0.9em;
+  display:block;
+  height:1em;
+}
+</style>
+
+<script>
+// Validation personnalisée en live
+const form = document.getElementById('inscription');
+
+const errors = {
+  nom: "Nom invalide, 3 à 10 lettres uniquement.",
+  prenom: "Prénom invalide, 3 à 15 lettres uniquement.",
+  email: "Email invalide.",
+  age: "Âge entre 18 et 65.",
+  dob: "Date obligatoire.",
+  tel: "Téléphone invalide, format xxx-xxxxxxx."
+};
+
+form.addEventListener('input', (e)=>{
+  const field = e.target;
+  const errorSpan = document.getElementById(field.id + "Error");
+  if(field.validity.valid){
+    errorSpan.textContent = "✔"; // check vert
+    errorSpan.style.color="green";
+  } else {
+    errorSpan.textContent = errors[field.id];
+    errorSpan.style.color="red";
+  }
+});
+
+form.addEventListener('submit', (e)=>{
+  if(!form.checkValidity()){
+    e.preventDefault();
+    alert("Veuillez corriger les erreurs avant d'envoyer le formulaire !");
+  }
+});
+</script>
 
   <button onclick="toggleCode('code3')">Afficher HTML5</button>
   <pre id="code3">
@@ -216,5 +332,6 @@ window.addEventListener("scroll", ()=>{
 
 </body>
 </html>
+
 
 
