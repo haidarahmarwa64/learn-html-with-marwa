@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Learn HTML with Marwa</title>
+
+<meta name="description" content="Cours HTML interactif et moderne pour débutants">
+<meta name="author" content="Marwa">
+
+<style>
+:root{
+  --primary:#4fc3c7;
+  --secondary:#81c784;
+  --bg:#f4fbff;
+  --text:#333;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  padding:40px;
+  text-align:center;
+  animation: slideDown 1s ease;
+}
+
+@keyframes slideDown{
+  from{transform:translateY(-50px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+
+/* MENU */
+nav{
+  background:white;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+nav ul{
+  display:flex;
+  list-style:none;
+  margin:0;
+  padding:10px;
+  justify-content:center;
+  gap:20px;
+}
+nav a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:bold;
+}
+
+/* SECTIONS */
+section{
+  background:white;
+  margin:30px;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{color:#00796b;}
+
+button{
+  background:var(--primary);
+  border:none;
+  color:white;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+pre{
+  background:#eef;
+  padding:15px;
+  border-radius:10px;
+  display:none;
+  overflow:auto;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Learn HTML with Marwa</h1>
+  
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#balises">Balises</a></li>
+    <li><a href="#html5">HTML5</a></li>
+  </ul>
+</nav>
+
+<section id="intro">
+  <h2>🔹 Introduction à HTML</h2>
+  <p>
+    HTML (HyperText Markup Language) est le langage standard utilisé
+    pour créer la structure des pages web. Il est maintenu par le
+    <strong>W3C</strong>.
+  </p>
+  <p>
+    HTML fonctionne avec CSS (style) et JavaScript (interaction).
+  </p>
+</section>
+
+<section id="structure">
+  <h2>🔹 Structure d’un document HTML</h2>
+  <p>
+    Un document HTML est composé de deux parties principales :
+    <strong>&lt;head&gt;</strong> et <strong>&lt;body&gt;</strong>.
+  </p>
+
+  <button onclick="toggleCode('code1')">Afficher le code</button>
+  <pre id="code1">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Ma page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Contenu visible
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+</section>
+
+<section id="balises">
+  <h2>🔹 Balises HTML courantes</h2>
+  <ul>
+    <li><strong>&lt;h1&gt; à &lt;h6&gt;</strong> : titres</li>
+    <li><strong>&lt;p&gt;</strong> : paragraphe</li>
+    <li><strong>&lt;a&gt;</strong> : lien</li>
+    <li><strong>&lt;img&gt;</strong> : image</li>
+    <li><strong>&lt;ul&gt; / &lt;ol&gt;</strong> : listes</li>
+  </ul>
+
+  <button onclick="toggleCode('code2')">Voir exemple</button>
+  <pre id="code2">
+&lt;h1&gt;Titre principal&lt;/h1&gt;
+&lt;p&gt;Un paragraphe HTML&lt;/p&gt;
+&lt;a href="https://www.w3.org"&gt;Site du W3C&lt;/a&gt;
+  </pre>
+</section>
+
+<section id="html5">
+  <h2>🔹 HTML5 et balises sémantiques</h2>
+  <p>
+    HTML5 introduit des balises sémantiques qui donnent du sens
+    au contenu et améliorent l’accessibilité et le SEO.
+  </p>
+
+  <button onclick="toggleCode('code3')">Afficher HTML5</button>
+  <pre id="code3">
+&lt;header&gt;En-tête&lt;/header&gt;
+&lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;section&gt;Section&lt;/section&gt;
+&lt;article&gt;Article&lt;/article&gt;
+&lt;footer&gt;Pied de page&lt;/footer&gt;
+  </pre>
+</section>
+
+<footer>
+  © 2026 – Learn HTML with Marwa  
+  <br>Inspiré des standards W3C, MDN et W3Schools
+</footer>
+
+<script>
+/* afficher / cacher code */
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+/* animation au scroll */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const pos = sec.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
+      sec.classList.add("visible");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
