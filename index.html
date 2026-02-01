@@ -163,41 +163,51 @@ pre{
 </section>
 <section id="structure_formulaire">
   <h2>🔹 Comment créer un formulaire HTML</h2>
-  <p>Pour créer un formulaire, il faut utiliser la balise &lt;form&gt; qui contient tous les champs de saisie et le bouton d’envoi.</p>
+  <p>Pour créer un formulaire, on utilise la balise &lt;form&gt; qui contient tous les champs et le bouton d’envoi.</p>
 
   <h3>1️⃣ Les champs de saisie (&lt;input&gt;)</h3>
+  <p>Chaque champ est défini par la balise &lt;input&gt; avec un <strong>type</strong> spécifique :</p>
   <ul>
-    <li><strong>Type texte (text)</strong> : pour nom, prénom, adresse…</li>
-    <li><strong>Type email</strong> : pour saisir une adresse email, le navigateur vérifie automatiquement le format.</li>
-    <li><strong>Type nombre (number)</strong> : pour l’âge ou toute valeur numérique, on peut limiter avec min et max.</li>
-    <li><strong>Type date (date)</strong> : pour choisir une date (ex : date de naissance).</li>
-    <li><strong>Type téléphone (tel)</strong> : pour un numéro de téléphone, souvent avec pattern pour vérifier le format.</li>
+    <li><strong>Texte :</strong> pour nom, prénom…  
+      Syntaxe : <code>&lt;input type="text" name="nom" required&gt;</code></li>
+    <li><strong>Email :</strong> le navigateur vérifie automatiquement le format.  
+      Syntaxe : <code>&lt;input type="email" name="email" required&gt;</code></li>
+    <li><strong>Nombre :</strong> pour l’âge ou un chiffre.  
+      Syntaxe : <code>&lt;input type="number" name="age" min="18" max="65" required&gt;</code></li>
+    <li><strong>Date :</strong> pour date de naissance.  
+      Syntaxe : <code>&lt;input type="date" name="dob" required&gt;</code></li>
+    <li><strong>Téléphone :</strong> pour numéro avec format.  
+      Syntaxe : <code>&lt;input type="tel" name="tel" pattern="\d{3}-\d{7}" required&gt;</code></li>
+    <li><strong>Fichier :</strong> pour uploader un fichier.  
+      Syntaxe : <code>&lt;input type="file" name="monfichier"&gt;</code></li>
   </ul>
 
   <h3>2️⃣ Attributs importants</h3>
   <ul>
-    <li><strong>required</strong> : rend un champ obligatoire. Le formulaire ne pourra pas être envoyé si ce champ est vide.</li>
-    <li><strong>pattern</strong> : permet de limiter la saisie à un certain format grâce aux expressions régulières. Exemple : <code>\d{3}-\d{7}</code> pour un numéro marocain xxx-xxxxxxx.</li>
-    <li><strong>min / max</strong> : pour les nombres, définissent la valeur minimale et maximale.</li>
-    <li><strong>minlength / maxlength</strong> : pour les textes, définissent le nombre minimum et maximum de caractères.</li>
+    <li><strong>required</strong> : le champ doit être rempli pour envoyer le formulaire.  
+      Exemple : <code>&lt;input type="text" required&gt;</code></li>
+    <li><strong>pattern</strong> : limite le format avec expression régulière.  
+      Exemple : <code>&lt;input type="text" pattern="[A-Z]{2}[0-9]{3}"&gt;</code></li>
+    <li><strong>min / max</strong> : valeurs minimales et maximales pour type number.  
+      Exemple : <code>&lt;input type="number" min="18" max="65"&gt;</code></li>
+    <li><strong>minlength / maxlength</strong> : longueur minimum et maximum pour type text.  
+      Exemple : <code>&lt;input type="text" minlength="3" maxlength="10"&gt;</code></li>
   </ul>
 
-  <h3>3️⃣ Le bouton d’envoi</h3>
-  <p>Le formulaire se termine généralement avec un bouton de type <strong>submit</strong> qui envoie les données. Sans ce bouton, l’utilisateur ne peut pas valider le formulaire.</p>
+  <h3>3️⃣ Bouton d’envoi</h3>
+  <p>On utilise <strong>submit</strong> pour envoyer le formulaire :</p>
+  <code>&lt;button type="submit"&gt;Envoyer&lt;/button&gt;</code>
 
-  <h3>4️⃣ Conseils pour ton formulaire</h3>
+  <h3>💡 Conseils</h3>
   <ul>
-    <li>Commence par ouvrir la balise &lt;form&gt; et la fermer à la fin.</li>
-    <li>Chaque champ doit avoir un &lt;label&gt; pour indiquer ce que l’utilisateur doit remplir.</li>
-    <li>Choisis le <strong>type</strong> adapté au contenu que l’utilisateur doit saisir.</li>
-    <li>Utilise <strong>required</strong> pour les champs obligatoires.</li>
-    <li>Utilise <strong>pattern</strong> si tu veux imposer un format précis (ex : téléphone, mot de passe).</li>
-    <li>Ajoute un bouton <strong>submit</strong> à la fin pour envoyer le formulaire.</li>
+    <li>Chaque champ doit avoir un &lt;label&gt; pour expliquer ce que l’utilisateur doit remplir.</li>
+    <li>Choisir le type approprié pour chaque donnée.</li>
+    <li>Utiliser <strong>required</strong> et <strong>pattern</strong> si nécessaire.</li>
+    <li>Terminer le formulaire avec un bouton submit.</li>
+    <li>Tu peux ajouter aussi &lt;textarea&gt; pour des textes longs ou &lt;select&gt; pour listes déroulantes.</li>
   </ul>
 
-  <p>💡 Astuce : tu peux aussi insérer des éléments comme &lt;textarea&gt; pour des textes longs, &lt;select&gt; pour des listes déroulantes, ou &lt;input type="file"&gt; pour des fichiers. Mais pour le test, concentre-toi sur : nom, prénom, email, âge, date, téléphone et bouton d’envoi.</p>
-
-  <p>Maintenant, utilise ces indications pour écrire ton propre formulaire dans le test interactif !</p>
+  <p>Maintenant, utilise ces indications pour écrire ton propre formulaire dans le test interactif ci-dessous.</p>
 </section>
 
 <section id="test">
@@ -275,5 +285,6 @@ function checkForm(){
 
 </body>
 </html>
+
 
 
